@@ -7,8 +7,11 @@ set -e
 echo "Attempting to create Streaming Assets directory..."
 mkdir -p Travis/UnityTestProject/Assets/StreamingAssets/
 
-echo "Attempting to decrypt config..."
-openssl aes-256-cbc -K $encrypted_984f19857b4c_key -iv $encrypted_984f19857b4c_iv -in Config.json.enc -out Travis/UnityTestProject/Assets/StreamingAssets/Config.json -d
+# echo "Attempting to decrypt config..."
+# openssl aes-256-cbc -K $encrypted_984f19857b4c_key -iv $encrypted_984f19857b4c_iv -in Config.json.enc -out Travis/UnityTestProject/Assets/StreamingAssets/Config.json -d
+
+echo "Attempting to get credentials..."
+curl -u $CRED_USERNAME:$CRED_PASSWORD https://watson-sdk-credentials.mybluemix.net/api/credentials -o Travis/UnityTestProject/Assets/StreamingAssets/Config.json
 
 echo "Attempting to run UnitySDK integration Tests..."
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
