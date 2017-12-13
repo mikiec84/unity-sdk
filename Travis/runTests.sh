@@ -26,11 +26,13 @@ if [ $? = 0 ] ; then
   echo "UnitTest COMPLETED! Exited with $?"
   echo 'Test logs'
   cat $(pwd)/integrationTests.log
+  echo 'End logs'  
   exit 0
 else
   echo "UnitTest FAILED! Exited with $?"
   echo 'Test logs'
   cat $(pwd)/integrationTests.log
+  echo 'End logs'    
   exit 1
 fi
 # else
