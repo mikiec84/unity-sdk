@@ -17,5 +17,5 @@ before_script:
 script:
 - ./Travis/createProject.sh
 - ./Travis/installSDK.sh
-- ./Travis/runTests.sh
+- travis_wait 60 ./Travis/runTests.sh
 - ./Travis/build.sh
